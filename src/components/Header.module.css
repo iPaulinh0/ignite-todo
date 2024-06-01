@@ -1,0 +1,6 @@
+.header {
+    max-width: 46rem;
+    margin: 4.5rem auto;
+    display: flex;
+    justify-content: center;
+}
