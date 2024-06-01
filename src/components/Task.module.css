@@ -21,6 +21,19 @@
     background: transparent;
     border: none;
     color: var(--gray-300);
+    transition: color .2s;
+}
+
+.task button:hover {
+    color: var(--danger);
+}
+
+.task button:focus {
+    color: var(--danger);
+    outline: 2px solid var(--purple-600);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
 }
 
 .task input {
@@ -32,8 +45,34 @@
     border: 2px solid var(--blue-400);
     border-radius: 50%;
     flex-shrink: 0;
+
+    transition: border .2s, background-color .2s;
+}
+
+.task input:hover {
+    all: unset;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    border: 2px solid var(--blue-400);
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--blue-600);
+
+    transition: border .2s, background-color .2s;
 }
 
 .task input:checked {
-    background: var(--blue-400);
+    background: var(--purple-600) url(../assets/checked.svg) no-repeat center;
+    border: 2px solid var(--purple-600);
+}
+
+.task input:checked:hover {
+    background: var(--purple-400) url(../assets/checked.svg) no-repeat center;
+    border: 2px solid var(--purple-400);
+}
+
+.task input:focus {
+    outline: 2px solid var(--purple-400);
 }

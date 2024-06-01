@@ -6,11 +6,10 @@ import { PlusCircle } from 'phosphor-react'
 
 export function ToDo() {
 
-    const [task, setTask] = useState([
-    'Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s, when an unknown printer took a galley'
-    ])
-    const [inputValue, setInputValue] = useState('')
-    const isInputEmpty = inputValue.length === 0
+    const [task, setTask] = useState<string[]>([]);
+    const [inputValue, setInputValue] = useState('');
+    const isInputEmpty = inputValue.length === 0;
+    const isTaskEmpty = task.length === 0;
 
     function handleInputChangeValue(event: ChangeEvent<HTMLInputElement>) {
         event.target.setCustomValidity('')
@@ -23,9 +22,7 @@ export function ToDo() {
         if(inputValue === '') {
             alert('Digite uma tarefa antes de submeter.')
         } else {
-            setTask([
-                ...task, inputValue
-            ])
+            setTask([...task, inputValue])
             setInputValue('')
         }
     }
@@ -58,9 +55,9 @@ export function ToDo() {
 
             <main className={styles.list}>
                 {task.map(list => {
-                    if (task.length === 0) {
-                       return <Empty />
-                    } else {
+                    if(isTaskEmpty === true) {
+                        return <Empty />
+                    } else{
                         return <Task content={list} key={list} />
                     }
                 })}

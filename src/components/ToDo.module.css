@@ -56,6 +56,11 @@
     background: var(--blue-400);
 }
 
+.form button:focus {
+    background: var(--blue-400);
+    outline: 2px solid var(--purple-600);
+}
+
 .form button:disabled {
     opacity: .7;
     cursor: not-allowed;
