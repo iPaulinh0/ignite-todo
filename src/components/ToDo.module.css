@@ -94,6 +94,18 @@
     padding: .125rem .5rem;
 }
 
+.status .finishedTask {
+    display: inline;
+
+    background: var(--gray-400);
+
+    color: var(--gray-100);
+
+    border-radius: 16px;
+    padding: .125rem .5rem;
+    margin-left: .25rem;
+}
+
 .list {
     max-width: 46rem;
     margin: auto;
