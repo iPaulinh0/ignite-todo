@@ -2,6 +2,7 @@ import styles from './ToDo.module.css'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { Task } from './Task'
 import { PlusCircle } from 'phosphor-react'
+import { Empty } from './Empty';
 
 export function ToDo() {
 
@@ -10,6 +11,7 @@ export function ToDo() {
     const [finishedTaskCount] = useState<string[]>([])
     const [finishedTaskCounter, setFinishedTaskCounter] = useState(0)
     const isInputEmpty = inputValue.length === 0;
+    const isTaskEmpty = task.length === 0
 
     function handleInputChangeValue(event: ChangeEvent<HTMLInputElement>) {
         event.target.setCustomValidity('')
@@ -74,9 +76,17 @@ export function ToDo() {
             </div>
 
             <main className={styles.list}>
-                {task.map(list => {
+                {
+                    isTaskEmpty
+                    ?
+                    (
+                        <Empty />
+                    )
+                    :
+                    task.map(list => {
                         return <Task content={list} key={list} onDeleteTask={deleteTask} onFinishTask={finishTask} />
-                })}
+                    })
+                }
             </main>
         </div>
     )
