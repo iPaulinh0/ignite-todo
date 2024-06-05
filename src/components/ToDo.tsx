@@ -69,6 +69,10 @@ export function ToDo() {
                     Concluídas
                     <p className={styles.finishedTask}>
                         {
+                            isTaskEmpty
+                            ?
+                            `${task.length}`
+                            :
                             `${finishedTaskCounter} de ${task.length}`
                         }
                     </p>
